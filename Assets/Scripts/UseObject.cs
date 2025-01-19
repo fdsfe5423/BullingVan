@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
 using TMPro;
+using static UnityEngine.Rendering.DebugUI;
 
 public class UseObject : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class UseObject : MonoBehaviour
     public int distance;
     public InputActionProperty action;
     public AudioSource audio;
+    public AudioSource mamOtkaz;
 
     private void Update()
     {
@@ -18,17 +20,30 @@ public class UseObject : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit))
         {
+            float isTap = action.action.ReadValue<float>();
+            if(hit.collider.gameObject.GetComponent<Mama>() &&isTap > 0.5)
+            {
+                if (!hit.collider.gameObject.GetComponent<Mama>().can)
+                {
+                hit.collider.gameObject.GetComponent<Mama>().panel.SetActive(true);
+                hit.collider.GetComponentInParent<Mama>().can = false;
+                }
+                else
+                {
+                    text.text = "Мама: сына, доделай сначала то что делаешь, а потом поговорим";
+                    mamOtkaz.Play();
+                }
+            }
+            if(hit.collider.gameObject.GetComponent<UsedObject>() && hit.collider.gameObject.GetComponent<UsedObject>().youCanActiveMi && isTap > 0.5)
+            {
             if(audio.isPlaying)
             {
                 return;
             }
-            float isTap = action.action.ReadValue<float>();
-            if(hit.collider.gameObject.GetComponent<UsedObject>() && hit.collider.gameObject.GetComponent<UsedObject>().youCanActiveMi && isTap > 0.5)
-            {
                 hit.collider.gameObject.GetComponent<UsedObject>().youCanActiveMi = false;
-                audio.clip = hit.collider.gameObject.GetComponent<UsedObject>().audio.clip;
+                audio.clip = hit.collider.gameObject.GetComponent<UsedObject>().audioRU.clip;
                 audio.Play();
-                text.text = hit.collider.gameObject.GetComponent<UsedObject>().subText;
+                text.text = hit.collider.gameObject.GetComponent<UsedObject>().subTextRU;
                 DisSub();
             }
         }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class UsedObject : MonoBehaviour
 {
     public bool youCanActiveMi = true;
-    public string subText;
-    public AudioSource audio;
+    public string subTextRU;
+    public string subTextEN;
+    public AudioSource audioRU;
+    public AudioSource audioEn;
 }

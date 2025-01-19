@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class Mama : MonoBehaviour
 {
+    public bool can;
+    public bool youMakeZadPol;
+    public bool youMakeZadSvet;
+    public bool youMakeZadDog;
     public GameObject panel;
-    public List<bool> boollingVani = new List<bool>();
     public List<GameObject> gayObject = new List<GameObject>();
-    public List<string> texts = new List<string>();
+    public List<string> textsRU = new List<string>();
+    public List<string> textsEN = new List<string>();
 
     private void Update()
     {
-        if (boollingVani[0] == true)
+        if (youMakeZadPol)
         {
             gayObject[0].SetActive(false);
         }
-        if (boollingVani[1] == true)
+        if (youMakeZadSvet)
         {
             gayObject[1].SetActive(false);
         }
-        if (boollingVani[2] == true)
+        if (youMakeZadDog)
         {
             gayObject[2].SetActive(false);
         }
