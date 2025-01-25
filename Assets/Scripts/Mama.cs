@@ -9,9 +9,13 @@ public class Mama : MonoBehaviour
     public bool youMakeZadSvet;
     public bool youMakeZadDog;
     public GameObject panel;
+    public string nowText;
+    public AudioClip nowClip;
     public List<GameObject> gayObject = new List<GameObject>();
     public List<string> textsRU = new List<string>();
     public List<string> textsEN = new List<string>();
+    public List<AudioSource> audioSourcesRU = new List<AudioSource>();
+    public List<AudioSource> audioSourcesEN = new List<AudioSource>();
 
     private void Update()
     {

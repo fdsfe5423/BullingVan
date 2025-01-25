@@ -12,6 +12,7 @@ public class UseObject : MonoBehaviour
     public InputActionProperty action;
     public AudioSource audio;
     public AudioSource mamOtkaz;
+    public bool RUSUB;
 
     private void Update()
     {
@@ -27,6 +28,8 @@ public class UseObject : MonoBehaviour
                 {
                 hit.collider.gameObject.GetComponent<Mama>().panel.SetActive(true);
                 hit.collider.GetComponentInParent<Mama>().can = false;
+                    text.text = hit.collider.GetComponentInParent<Mama>().nowText;
+                    audio.clip = hit.collider.GetComponentInParent<Mama>().nowClip;
                 }
                 else
                 {

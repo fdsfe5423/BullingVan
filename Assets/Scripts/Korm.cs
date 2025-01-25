@@ -4,30 +4,14 @@ using UnityEngine;
 
 public class Korm : MonoBehaviour
 {
-    public ParticleSystem particl;
-    public bool iActive;
-    public BoxCollider sad;
-    public GameObject kryt;
+    public GameObject KORM;
+    public GameObject point;
 
     private void Update()
     {
-        if (iActive == true)
+        if (gameObject.transform.rotation.x > 0.3)
         {
-            sad.enabled = true;
-        }
-        else if (iActive == false)
-        {
-            sad.enabled = false;
-        }
-        if (kryt.transform.rotation.x > 0.3 && !iActive)
-        {
-            particl.Play();
-            iActive = true;
-        }
-        else if (kryt.transform.rotation.x < 0.3)
-        {
-            particl.Stop();
-            iActive = false;
+            Instantiate(KORM, point.transform.position, Quaternion.identity);
         }
     }
 }
