@@ -5,6 +5,12 @@ using UnityEngine;
 public class Shvabra : MonoBehaviour
 {
     public bool iwatering;
+    public ParticleSystem part;
+
+    private void Start()
+    {
+        part.Stop();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,8 +21,15 @@ public class Shvabra : MonoBehaviour
         }
         if (other.gameObject.tag == "Graz" && GameObject.Find("Mam").GetComponent<Mama>().youMakeZadPol && iwatering)
         {
+            part.Play();
+            Invoke("StopPart", 0.7f);
             other.gameObject.GetComponent<QuestionChexker>().iActive = true;
             other.gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
+    }
+
+    public void StopPart()
+    {
+        part.Stop();
     }
 }

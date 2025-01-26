@@ -11,7 +11,8 @@ public class UseObject : MonoBehaviour
     public int distance;
     public InputActionProperty action;
     public AudioSource audio;
-    public AudioSource mamOtkaz;
+    public AudioSource mamOtkazRU;
+    public AudioSource mamOtkazEN;
     public bool RUSUB;
 
     private void Update()
@@ -24,6 +25,10 @@ public class UseObject : MonoBehaviour
             float isTap = action.action.ReadValue<float>();
             if(hit.collider.gameObject.GetComponent<Mama>() &&isTap > 0.5)
             {
+                if (audio.isPlaying)
+                {
+                    return;
+                }
                 if (!hit.collider.gameObject.GetComponent<Mama>().can)
                 {
                 hit.collider.gameObject.GetComponent<Mama>().panel.SetActive(true);
@@ -33,21 +38,21 @@ public class UseObject : MonoBehaviour
                 }
                 else
                 {
-                    text.text = "Мама: сына, доделай сначала то что делаешь, а потом поговорим";
-                    mamOtkaz.Play();
+                    if(RUSUB)
+                    {
+                        text.text = "Мама: сына, доделай сначала то что делаешь, а потом поговорим";
+                        audio.clip = mamOtkazRU.clip;
+                        audio.Play();
+                        DisSub();
+                    }
+                    else
+                    {
+                        text.text = "Mom: son, finish what you're doing first, and then we'll talk";
+                        audio.clip = mamOtkazEN.clip;
+                        audio.Play();
+                        DisSub();
+                    }                  
                 }
-            }
-            if(hit.collider.gameObject.GetComponent<UsedObject>() && hit.collider.gameObject.GetComponent<UsedObject>().youCanActiveMi && isTap > 0.5)
-            {
-            if(audio.isPlaying)
-            {
-                return;
-            }
-                hit.collider.gameObject.GetComponent<UsedObject>().youCanActiveMi = false;
-                audio.clip = hit.collider.gameObject.GetComponent<UsedObject>().audioRU.clip;
-                audio.Play();
-                text.text = hit.collider.gameObject.GetComponent<UsedObject>().subTextRU;
-                DisSub();
             }
         }
     }

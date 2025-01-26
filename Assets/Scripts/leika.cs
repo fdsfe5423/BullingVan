@@ -10,6 +10,11 @@ public class leika : MonoBehaviour
     public float MaxWaterLVL;
     public GameObject waterplumb;
 
+    private void Start()
+    {
+        part.Stop();
+    }
+
     private void FixedUpdate()
     {
         waterplumb.transform.localPosition = new Vector3(0, waterLVL, 0);
@@ -27,7 +32,7 @@ public class leika : MonoBehaviour
             if (gameObject.transform.localRotation.x > 0.5 && gameObject.transform.localRotation.x < 0.75)
             { 
                 StartCoroutine(Sliv());
-                waterLVL -= 0.0001f;
+                waterLVL -= 0.0005f;
             }
             else
             {

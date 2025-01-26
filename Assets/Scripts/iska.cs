@@ -15,16 +15,15 @@ public class iska : MonoBehaviour
         if (waterLVL > MaxWaterLVL)
         {
             waterLVL = MaxWaterLVL;
-            GameObject.Find("Mam").GetComponent<Mama>().youMakeZadDog = true;
-            GameObject.Find("Mam").GetComponent<Mama>().can = true;
+            GameObject.Find("Mam").GetComponent<Mama>().can = false;
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Korm")
+        if (other.gameObject.tag == "Korm" && GameObject.Find("Mam").GetComponent<Mama>().youMakeZadDog)
         {
-            waterLVL += 0.01f;
+            waterLVL += 0.0005f;
         }
     }
 }

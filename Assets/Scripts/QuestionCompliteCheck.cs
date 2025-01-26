@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class QuestionCompliteCheck : MonoBehaviour
 {
+    public bool youcantcmplite;
     private void OnTriggerStay(Collider other)
     {
         if(other.gameObject.GetComponent<QuestionChexker>().iActive)
@@ -17,6 +18,10 @@ public class QuestionCompliteCheck : MonoBehaviour
     }
     public void Complite()
     {
+        if(!youcantcmplite)
+        {
         GameObject.Find("Mam").GetComponent<Mama>().can = false;
+        youcantcmplite = true;
+        }
     }
 }

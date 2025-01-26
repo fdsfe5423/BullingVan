@@ -10,6 +10,11 @@ public class Vadro : MonoBehaviour
     public float MaxWaterLVL;
     public GameObject waterplumb;
 
+    private void Start()
+    {
+        part.Stop();
+    }
+
     private void FixedUpdate()
     {
         waterplumb.transform.localPosition = new Vector3(0, waterLVL, 0);
