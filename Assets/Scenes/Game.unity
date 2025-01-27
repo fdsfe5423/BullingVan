@@ -6471,7 +6471,7 @@ MonoBehaviour:
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
-  m_ReinitializeDynamicAttachEverySingleGrab: 1
+  m_ReinitializeDynamicAttachEverySingleGrab: 0
   m_AttachEaseInTime: 0.15
   m_MovementType: 0
   m_VelocityDamping: 1
@@ -7569,7 +7569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iActive: 0
   part: {fileID: 732632257}
-  waterLVL: 0
+  waterLVL: 1
   MaxWaterLVL: 0.5
   waterplumb: {fileID: 1781747837}
   kryt: {fileID: 989057417}
@@ -8576,7 +8576,7 @@ MonoBehaviour:
   panel: {fileID: 1479351052}
   nameQuestion: svet
   player: {fileID: 651936076}
-  animator: {fileID: 0}
+  animator: {fileID: 1265100382}
 --- !u!1001 &536144425
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9635,7 +9635,7 @@ MonoBehaviour:
   panel: {fileID: 1479351052}
   nameQuestion: dog
   player: {fileID: 651936076}
-  animator: {fileID: 0}
+  animator: {fileID: 1265100382}
 --- !u!1 &720961888
 GameObject:
   m_ObjectHideFlags: 0
@@ -9654,7 +9654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &720961889
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23138,7 +23138,7 @@ MonoBehaviour:
   panel: {fileID: 1479351052}
   nameQuestion: pol
   player: {fileID: 651936076}
-  animator: {fileID: 0}
+  animator: {fileID: 1265100382}
 --- !u!114 &1439510987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23340,7 +23340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1479351053
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25323,7 +25323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   part: {fileID: 905055022}
-  waterLVL: 0
+  waterLVL: 1
   MaxWaterLVL: 0.5
   waterplumb: {fileID: 97034322}
   pivot: {fileID: 111043254}
