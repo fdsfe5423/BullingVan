@@ -9,6 +9,7 @@ public class Vadro : MonoBehaviour
     public float waterLVL;
     public float MaxWaterLVL;
     public GameObject waterplumb;
+    public GameObject pivot;
 
     private void Start()
     {
@@ -17,7 +18,7 @@ public class Vadro : MonoBehaviour
 
     private void FixedUpdate()
     {
-        waterplumb.transform.localPosition = new Vector3(0, waterLVL, 0);
+        waterplumb.transform.localPosition = new Vector3(0, 0,waterLVL/111);
         if(waterLVL > MaxWaterLVL)
         {
             waterLVL = MaxWaterLVL;
@@ -29,7 +30,7 @@ public class Vadro : MonoBehaviour
         }
         if (waterLVL > 0)
         {
-            if (gameObject.transform.localRotation.x < -0.98 && gameObject.transform.localRotation.x > -1.02 || gameObject.transform.localRotation.x > 0.98 && gameObject.transform.localRotation.x < 1.02 || gameObject.transform.localRotation.z < -0.98 && gameObject.transform.localRotation.z > -1.02 || gameObject.transform.localRotation.z > 0.98 && gameObject.transform.localRotation.z < 1.02)
+            if (pivot.transform.localRotation.x < -0.98 && pivot.transform.localRotation.x > -1.02 || pivot.transform.localRotation.x > 0.98 && pivot.transform.localRotation.x < 1.02 || pivot.transform.localRotation.z < -0.98 && pivot.transform.localRotation.z > -1.02 || pivot.transform.localRotation.z > 0.98 && pivot.transform.localRotation.z < 1.02)
             {
                 StartCoroutine(Sliv());
                 waterLVL -= 0.01f;

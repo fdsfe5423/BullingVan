@@ -11,7 +11,7 @@ public class iska : MonoBehaviour
 
     private void FixedUpdate()
     {
-        waterplumb.transform.localPosition = new Vector3(0, waterLVL, 0);
+        waterplumb.transform.localPosition = new Vector3(0, 0,waterLVL/100);
         if (waterLVL > MaxWaterLVL)
         {
             waterLVL = MaxWaterLVL;

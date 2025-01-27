@@ -9,6 +9,7 @@ public class QuestionButton : MonoBehaviour
     public GameObject panel;
     public string nameQuestion;
     public GameObject player;
+    public Animator animator;
 
     public void Tap()
     {
@@ -16,14 +17,6 @@ public class QuestionButton : MonoBehaviour
         {
             player.GetComponent<UseObject>().text.text = panel.GetComponentInParent<Mama>().textsRU[numder];
             player.GetComponent<UseObject>().audio.clip = panel.GetComponentInParent<Mama>().audioSourcesRU[numder].clip;
-            player.GetComponent<UseObject>().audio.Play();
-            player.GetComponent<UseObject>().DisSub();
-        }
-        else
-        {
-            player.GetComponent<UseObject>().text.text = panel.GetComponentInParent<Mama>().textsEN[numder];
-            player.GetComponent<UseObject>().audio.clip = panel.GetComponentInParent<Mama>().audioSourcesEN[numder].clip;
-            player.GetComponent<UseObject>().audio.Play();
             player.GetComponent<UseObject>().DisSub();
         }
         panel.GetComponentInParent<Mama>().can = true;
@@ -39,6 +32,14 @@ public class QuestionButton : MonoBehaviour
         if (nameQuestion == "dog")
         {
             panel.GetComponentInParent<Mama>().youMakeZadDog = true;
+        }
+        if(player.GetComponent<UseObject>().text != null)
+        {
+            animator.SetBool("IsTalikng", true);
+        }
+        else
+        {
+            animator.SetBool("IsTalikng", false);
         }
     }
 }
